@@ -2,14 +2,16 @@ import React,{Fragment} from 'react';
 import {useForm} from 'react-hook-form';
 import OptionProfesiones from './OptionProfesiones';
 import './Formulario.css';
+import { useAlert } from 'react-alert';
 
 
 const Formulario = () => {
     //Destructuramos los modulos a utilizar del UseForm
     const {register,errors,handleSubmit} = useForm();
+    const Alerta = useAlert();
 
     //Muestra los datos en consola al enviar y resetea el Formulario
-    const onSubmit = (data,e) => {console.log(data); e.target.reset();}
+    const onSubmit = (data,e) => {console.log(data); e.target.reset();Alerta.show('Mensaje Enviado Correctamente')}
     return(
         <Fragment>
             <h1>Formulario</h1>
